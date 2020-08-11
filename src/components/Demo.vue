@@ -10,6 +10,13 @@
     <span v-html="link"></span>
     <div v-pre> {{name}}</div>
     <div class="static" :class="{'active':isActive,'error':isError}"></div>
+    <div>
+      <ul>
+        <li v-for="(key,value,index) in user" :key="index" >
+          {{index}}-{{key}}:{{value}}
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -60,7 +67,12 @@ export default {
       date: new Date(),
       link: '<a href="#">这个是一个链接</a>',
       isActive: true,
-      isError: true
+      isError: true,
+      user: {
+        name: 'micheal',
+        age: 64,
+        gender: '难'
+      }
     }
   }
 }
