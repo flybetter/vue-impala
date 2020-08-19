@@ -21,9 +21,9 @@
 </template>
 
 <script>
-// var padDate=function (value) {
-//   return value<0?'0'+value:value;
-// }
+var padDate = function (value) {
+  return value < 0 ? '0' + value : value
+}
 
 export default {
   name: 'Demo',
@@ -38,18 +38,18 @@ export default {
       clearInterval(this.timer)
     }
   },
-  // filter () {
-  //   formatDate: function f(value) {
-  //       var date=new Date(value);
-  //       var year=date.getFullYear();
-  //       var month=padDate(date.getMonth());
-  //       var day=padDate(date.getDay());
-  //       var hour=padDate(date.getHours());
-  //       var minutes=padDate(date.getMinutes());
-  //       var second=padDate(date.getSeconds());
-  //       return year+'-'+month+'-'+day+' '+hour+':'+minutes+':'+second;
-  //   }
-  // },
+  filters: {
+    formatDate: function f (value) {
+      var date = new Date(value)
+      var year = date.getFullYear()
+      var month = padDate(date.getMonth())
+      var day = padDate(date.getDay())
+      var hour = padDate(date.getHours())
+      var minutes = padDate(date.getMinutes())
+      var second = padDate(date.getSeconds())
+      return year + '-' + month + '-' + day + ' ' + hour + ':' + minutes + ':' + second
+    }
+  },
   computed: {
     now: function () {
       return Date.now()
